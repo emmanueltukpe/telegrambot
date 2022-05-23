@@ -19,11 +19,25 @@ const init = async () => {
 app.post(URI, async (req, res) => {
   console.log(req.body);
   const chatId = req.body.message.chat.id
+    if (req.body.message.text === '/start'){
+        await axios.post(`${TELEGRAM_API}/sendMessage`, {
+            chat_id:chatId,
+            text: "Big Mouth"
+        });
+    }
 
-  await axios.post(`${TELEGRAM_API}/sendMessage`, {
-      chat_id:chatId,
-      text: "Hi there"
-  });
+    else if (req.body.message.text === '/help') {
+        await axios.post(`${TELEGRAM_API}/sendMessage`, {
+            chat_id:chatId,
+            text: "The program start by converting the blogpost from the url into plain text. The text will then be passed to google-tts-api to convert the text into splitted audio files . With the help of a special package FFMPEG the splitted audio files will then be merged back into one whole file and be stored in filename given to the CLI at the start of the program."
+        });
+    }
+  else {
+    await axios.post(`${TELEGRAM_API}/sendMessage`, {
+        chat_id:chatId,
+        text: "Hi there"
+    });
+  }
 
 
 

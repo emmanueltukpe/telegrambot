@@ -38,3 +38,7 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT || 5000, async () => {
   console.log(`App running on port ${process.env.PORT || 5000}`);
 });
+
+
+process.once("SIGINT", () => bot.stop("SIGINT"))
+process.once("SIGTERM", () => bot.stop("SIGTERM"))

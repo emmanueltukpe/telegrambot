@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const { parseHTMLPage } = require("./html");
 const { convertTextToAudio } = require("./convert");
-const app = express();
+// const app = express();
 
 const { Telegraf } = require("telegraf");
 
@@ -32,12 +32,12 @@ bot.on("text", (ctx) => {
 });
 bot.launch();
 
-app.get('/', (req, res) => {
-  res.status(200).json({ status: 'UP' });
-});
-app.listen(process.env.PORT || 5000, async () => {
-  console.log(`App running on port ${process.env.PORT || 5000}`);
-});
+// app.get('/', (req, res) => {
+//   res.status(200).json({ status: 'UP' });
+// });
+// app.listen(process.env.PORT || 5000, async () => {
+//   console.log(`App running on port ${process.env.PORT || 5000}`);
+// });
 
 
 process.once("SIGINT", () => bot.stop("SIGINT"))

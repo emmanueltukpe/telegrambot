@@ -17,6 +17,7 @@ bot.help((ctx) =>
 bot.hears(/\/bigmouth (.+)/, async (ctx) => {
   const url = ctx.match[1];
   const text = await parseHTMLPage(url);
+  console.log(text)
   const splittedtext = url.split("/");
   const blogTitle =
     splittedtext[splittedtext.length - 1] == ""

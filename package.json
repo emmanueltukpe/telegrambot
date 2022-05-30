@@ -21,7 +21,6 @@
     "fluent-ffmpeg": "^2.1.2",
     "google-tts-api": "^2.0.2",
     "jsdom": "^19.0.0",
-    "request": "^2.88.2",
     "telegraf": "^4.8.2"
   },
   "devDependencies": {
